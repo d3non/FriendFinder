@@ -26,7 +26,7 @@ module.exports = function(app, path) {
 		var postResponse = JSON.stringify(req.body);
 
 		fs.readFile('app/data/friends.js', function (err, data) {
-			// Read the existing array
+            // Read the existing array
 		    var friendFile = JSON.parse(data);
 
 		    // Store the difference in values
@@ -55,7 +55,7 @@ module.exports = function(app, path) {
 		    friendFile.push(JSON.parse(postResponse));
 
 		    // Push back the entire updated result immediately
-		    fs.writeFile("app/data/friends.js", JSON.stringify(friendFile));
+		    fs.writeFileSync("app/data/friends.js", JSON.stringify(friendFile));
 			res.send(results[0]);
 
 		});

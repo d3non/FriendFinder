@@ -46,6 +46,7 @@ for ( var selector in config ) {
 
 // User clicks the submit button
 $( "#submitButton" ).on( "click", function( event ) {
+
 	// Don't reload the page
 	event.preventDefault();
 	// Make sure all form elements were selected
