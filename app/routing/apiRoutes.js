@@ -1,13 +1,7 @@
-// API Routes
-// =============================================================
-
-// Using fs to Read Data
-// linking our routes to read a series of data sources.
 var fs = require('fs');
 
 module.exports = function(app, path) {
 
-	// Show all friends available
 	app.get('/api/friends', function(req, res) {
 		fs.readFile("app/data/friends.js", "utf8", function(err, data) {
 			if (err) {
@@ -51,10 +45,8 @@ module.exports = function(app, path) {
 
 		    results.push(friendFile[closestMatch]);
 
-		    // Add the new person to the existing array
 		    friendFile.push(JSON.parse(postResponse));
 
-		    // Push back the entire updated result immediately
 		    fs.writeFileSync("app/data/friends.js", JSON.stringify(friendFile));
 			res.send(results[0]);
 
